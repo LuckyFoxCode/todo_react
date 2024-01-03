@@ -45,12 +45,19 @@ const people = [
 ];
 
 function App() {
+  const handlerClick = () => {
+    console.log('Click');
+  };
   return (
     <Card className="w-96 bg-slate-600 border-none m-auto mt-5 p-4">
       <h1 className="text-center text-cyan-400 mb-3">Super Todo:</h1>
       <Card className="bg-transparent border-none">
         <Input placeholder="Edit..." className=" focus-visible:ring-cyan-400" />
-        <Button variant={'outline'} className="focus-visible:ring-cyan-400">
+        <Button
+          variant={'outline'}
+          onClick={handlerClick}
+          className="focus-visible:ring-cyan-400"
+        >
           Add task
         </Button>
       </Card>
