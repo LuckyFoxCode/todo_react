@@ -1,16 +1,16 @@
-import { PeopleProps } from '@/App';
+import { TodosProps } from '@/App';
+import { Checkbox } from './ui/checkbox';
 
 interface TodoItemProps {
-  person: PeopleProps;
+  task: TodosProps;
 }
 
-export const TodoItem: React.FC<TodoItemProps> = ({ person }) => {
-  const { name, profession, accomplishment } = person;
+export const TodoItem: React.FC<TodoItemProps> = ({ task }) => {
+  const { note, isDone } = task;
   return (
-    <li className="last:mb-0">
-      <h2>Name: {name} </h2>
-      <span>Profession: {profession}</span>
-      <p>accomplishment: {accomplishment}</p>
+    <li className=" p-2 last:mb-0 flex items-center border-2 rounded-lg">
+      <Checkbox className="mr-2 focus-visible:ring-cyan-400" checked={isDone} />
+      <p>{note}</p>
     </li>
   );
 };

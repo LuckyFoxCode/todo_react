@@ -3,45 +3,16 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { TodoList } from '@/components/TodoList';
 
-export interface PeopleProps {
-  id: number;
-  name: string;
-  profession: string;
-  accomplishment: string;
+export interface TodosProps {
+  id: string;
+  note: string;
+  isDone: boolean;
 }
 
-const people = [
-  {
-    id: 0, // Used in JSX as a key
-    name: 'Creola Katherine Johnson',
-    profession: 'mathematician',
-    accomplishment: 'spaceflight calculations',
-  },
-  {
-    id: 1, // Used in JSX as a key
-    name: 'Mario José Molina-Pasquel Henríquez',
-    profession: 'chemist',
-    accomplishment: 'discovery of Arctic ozone hole',
-  },
-  {
-    id: 2, // Used in JSX as a key
-    name: 'Mohammad Abdus Salam',
-    profession: 'physicist',
-    accomplishment: 'electromagnetism theory',
-  },
-  {
-    id: 3, // Used in JSX as a key
-    name: 'Percy Lavon Julian',
-    profession: 'chemist',
-    accomplishment:
-      'pioneering cortisone drugs, steroids and birth control pills',
-  },
-  {
-    id: 4, // Used in JSX as a key
-    name: 'Subrahmanyan Chandrasekhar',
-    profession: 'astrophysicist',
-    accomplishment: 'white dwarf star mass calculations',
-  },
+const todos: TodosProps[] = [
+  { id: '0', note: 'Awesome library Shadcn/UI 🔥', isDone: true },
+  { id: '1', note: 'React is it freamwork or library? 🙃', isDone: false },
+  { id: '3', note: 'Added new task in Super Todo App 👀', isDone: true },
 ];
 
 function App() {
@@ -49,10 +20,13 @@ function App() {
     console.log('Click');
   };
   return (
-    <Card className="w-96 bg-slate-600 border-none m-auto mt-5 p-4">
+    <Card className="w-3/4 bg-slate-600 border-none m-auto mt-5 p-4">
       <h1 className="text-center text-cyan-400 mb-3">Super Todo:</h1>
-      <Card className="bg-transparent border-none">
-        <Input placeholder="Edit..." className=" focus-visible:ring-cyan-400" />
+      <Card className="bg-transparent border-none flex">
+        <Input
+          placeholder="Edit..."
+          className=" focus-visible:ring-cyan-400 mr-2"
+        />
         <Button
           variant={'outline'}
           onClick={handlerClick}
@@ -61,7 +35,7 @@ function App() {
           Add task
         </Button>
       </Card>
-      <TodoList people={people} />
+      <TodoList todos={todos} />
     </Card>
   );
 }

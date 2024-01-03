@@ -1,15 +1,15 @@
-import { PeopleProps } from '@/App';
+import { TodosProps } from '@/App';
 import { TodoItem } from './TodoItem';
 
 interface TodoListProps {
-  people: PeopleProps[];
+  todos: TodosProps[];
 }
 
-export const TodoList: React.FC<TodoListProps> = ({ people }) => {
+export const TodoList: React.FC<TodoListProps> = ({ todos }) => {
   return (
-    <ul className="my-6 ml-6 [&>li]:mb-2">
-      {([] && people).map((person) => (
-        <TodoItem key={person.id} person={person} />
+    <ul className="my-6 px-5 py-4 [&>li]:mb-2 bg-slate-100 rounded-lg">
+      {([] && todos).map((task) => (
+        <TodoItem key={task.id} task={task} />
       ))}
     </ul>
   );
