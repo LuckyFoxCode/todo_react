@@ -7,7 +7,6 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from './ui/form';
 import { Input } from './ui/input';
 
 interface TodoFormProps {
-  todos: TodosProps;
   setTodos: React.Dispatch<React.SetStateAction<TodosProps[]>>;
 }
 
