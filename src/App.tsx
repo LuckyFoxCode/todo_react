@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { TodoList } from '@/components/TodoList';
+import { Toaster } from './components/ui/toaster';
 import { TodoForm } from './components/TodoForm';
 
 export interface TodosProps {
@@ -17,10 +18,13 @@ export const App = () => {
   ]);
 
   return (
-    <Card className="w-3/4 bg-slate-600 border-none m-auto mt-5 p-4">
-      <h1 className="text-center text-cyan-400 mb-3">Super Todo:</h1>
-      <TodoForm setTodos={setTodos} />
-      <TodoList todos={todos} />
-    </Card>
+    <>
+      <Card className="w-3/4 bg-slate-600 border-none m-auto mt-5 p-4">
+        <h1 className="text-center text-cyan-400 mb-3">Super Todo:</h1>
+        <TodoForm setTodos={setTodos} />
+        <TodoList todos={todos} />
+      </Card>
+      <Toaster />
+    </>
   );
 };

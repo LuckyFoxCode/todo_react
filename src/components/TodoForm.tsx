@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from './ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from './ui/form';
 import { Input } from './ui/input';
+import { toast } from './ui/use-toast';
 
 interface TodoFormProps {
   setTodos: React.Dispatch<React.SetStateAction<TodosProps[]>>;
@@ -29,6 +30,15 @@ export const TodoForm: React.FC<TodoFormProps> = ({ setTodos }) => {
       ...prevState,
       { id: crypto.randomUUID(), note: values.note, isDone: true },
     ]);
+
+    toast({
+      title: 'You added new note:',
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">👉 {values.note}</code>
+        </pre>
+      ),
+    });
 
     values.note = '';
   };
