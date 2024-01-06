@@ -1,9 +1,39 @@
+import { useState } from 'react';
+import { TodosProps } from '@/utils/types';
 import { Button, Input } from '../common';
 
-export const TodoForm = () => {
+interface TodoFormProps {
+  setNotes: React.Dispatch<React.SetStateAction<TodosProps[]>>;
+}
+
+export const TodoForm: React.FC<TodoFormProps> = ({ setNotes }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setNotes((prev) => [
+      ...prev,
+      { id: crypto.randomUUID(), note: inputValue, isDone: false },
+    ]);
+
+    setInputValue('');
+  };
   return (
-    <form className="bg-white rounded-lg p-4 flex mb-3 shadow-lg">
-      <Input type="text" placeholder="Edit notes" className="mr-2" />
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white rounded-lg p-4 flex mb-3 shadow-lg"
+    >
+      <Input
+        type="text"
+        placeholder="Edit notes"
+        value={inputValue}
+        onChange={handleInputValue}
+        className="mr-2"
+      />
       <Button type="submit">Add note</Button>
     </form>
   );
