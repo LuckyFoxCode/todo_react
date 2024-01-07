@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       className={clsx(
-        'px-3 py-2 bg-slate-100 rounded-lg text-slate-700 font-medium focus:outline-cyan-500',
+        'px-3 py-2 bg-slate-100 rounded-lg text-slate-700 font-normal focus:outline-cyan-500',
         className,
       )}
     >

@@ -17,7 +17,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
     <li
       className={clsx(
         `flex items-center p-2 rounded-md bg-slate-200 shadow-md hover:shadow-cyan-200 transition-shadow  ${
-          isDone && 'shadow-green-300 bg-green-100'
+          isDone && 'shadow-green-300 bg-green-200'
         }`,
       )}
     >

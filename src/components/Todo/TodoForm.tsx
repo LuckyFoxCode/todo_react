@@ -38,7 +38,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ setNotes }) => {
       <Button
         type="submit"
         disabled={inputValue.length === 0}
-        className={`${!inputValue.length && 'bg-slate-100 text-slate-200'}`}
+        className={`${!inputValue.length && 'bg-slate-100 text-slate-300'}`}
       >
         Add note
       </Button>
