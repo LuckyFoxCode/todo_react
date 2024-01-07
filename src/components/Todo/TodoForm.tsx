@@ -12,6 +12,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ setNotes }) => {
   const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -29,12 +30,18 @@ export const TodoForm: React.FC<TodoFormProps> = ({ setNotes }) => {
     >
       <Input
         type="text"
-        placeholder="Edit notes"
+        placeholder="Note..."
         value={inputValue}
         onChange={handleInputValue}
         className="mr-2"
       />
-      <Button type="submit">Add note</Button>
+      <Button
+        type="submit"
+        disabled={inputValue.length === 0}
+        className={`${!inputValue.length && 'bg-slate-100 text-slate-200'}`}
+      >
+        Add note
+      </Button>
     </form>
   );
 };

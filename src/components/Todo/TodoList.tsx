@@ -18,25 +18,43 @@ export const TodoList: React.FC<TodoListProps> = ({
     setNotes(filteredNotes);
   };
 
+  const handleIsChecked = (id: string) => {
+    const isDoneTask = notes.map((note) => {
+      if (note.id === id) {
+        return { ...note, isDone: !note.isDone };
+      } else {
+        return note;
+      }
+    });
+
+    setNotes(isDoneTask);
+  };
+
   return (
     <>
-      {!notes.length ? (
-        <div className="flex flex-col items-center">
-          <h2 className="">Not found notes...</h2>
-          <p>Please add your first note 😥</p>
-        </div>
-      ) : (
+      {
         <ul
           className={clsx(
-            'flex flex-col gap-3 bg-slate-100 p-4 rounded-lg',
+            'flex flex-col gap-4 bg-slate-400 p-4 rounded-lg',
             className,
           )}
         >
           {([] && notes).map((todo) => (
-            <TodoItem key={todo.id} todo={todo} onClick={handleDeleteItem} />
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              handleDeleteItem={handleDeleteItem}
+              handleIsChecked={handleIsChecked}
+            />
           ))}
+          {!notes.length && (
+            <div className="flex flex-col items-center">
+              <h2 className="">Empty 😥</h2>
+              <p>Please add your first note... </p>
+            </div>
+          )}
         </ul>
-      )}
+      }
     </>
   );
 };
