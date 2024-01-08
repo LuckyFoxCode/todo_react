@@ -1,47 +1,61 @@
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
+import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { TodosProps } from '@/utils/types';
-import { Button, Input } from '../common';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
 
 interface TodoFormProps {
   setNotes: React.Dispatch<React.SetStateAction<TodosProps[]>>;
 }
 
+const formSchema = z.object({
+  note: z.string().min(2).max(50),
+});
+
 export const TodoForm: React.FC<TodoFormProps> = ({ setNotes }) => {
-  const [inputValue, setInputValue] = useState('');
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      note: '',
+    },
+  });
 
-  const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
     setNotes((prev) => [
       ...prev,
-      { id: crypto.randomUUID(), note: inputValue, isDone: false },
+      { id: crypto.randomUUID(), note: values.note, isDone: false },
     ]);
 
-    setInputValue('');
+    form.reset();
   };
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white rounded-lg p-4 flex mb-3 shadow-lg"
-    >
-      <Input
-        type="text"
-        placeholder="Note..."
-        value={inputValue}
-        onChange={handleInputValue}
-        className="mr-2"
-      />
-      <Button
-        type="submit"
-        disabled={inputValue.length === 0}
-        className={`${!inputValue.length && 'bg-slate-100 text-slate-300'}`}
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex items-center bg-slate-300 rounded-md mb-5 p-5"
       >
-        Add note
-      </Button>
-    </form>
+        <FormField
+          control={form.control}
+          name="note"
+          render={({ field }) => (
+            <FormItem className="grow">
+              <FormControl>
+                <Input type="text" placeholder="Edit..." {...field} />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+        <Button
+          disabled={Boolean(form.control._defaultValues.note)}
+          type="submit"
+          className="ml-3"
+        >
+          Submit
+        </Button>
+      </form>
+    </Form>
   );
 };

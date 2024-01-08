@@ -1,6 +1,7 @@
-import { cn } from '@/utils/cn';
+import { cn } from '@/lib/utils';
 import { TodosProps } from '@/utils/types';
-import { Icon } from '@iconify/react';
+import { Pencil1Icon, TrashIcon } from '@radix-ui/react-icons';
+import { Button } from '../ui/button';
 
 interface TodoItemProps {
   todo: TodosProps;
@@ -28,18 +29,15 @@ export const TodoItem: React.FC<TodoItemProps> = ({
       >
         {note}
       </p>
-      <button onClick={() => console.log('Edit')} className="mr-2">
-        <Icon
-          icon="iconoir:edit-pencil"
-          className="size-6 text-gray-700 transition-colors hover:text-yellow-400"
-        />
-      </button>
-
-      <Icon
-        icon="iconoir:trash"
-        className="size-5 text-gray-700 transition-colors hover:text-red-400 cursor-pointer"
+      <Button className="bg-transparent hover:bg-transparent">
+        <Pencil1Icon className="size-6 text-gray-700 transition-colors hover:text-yellow-400" />
+      </Button>
+      <Button
         onClick={() => handleDeleteItem(id)}
-      />
+        className="bg-transparent hover:bg-transparent"
+      >
+        <TrashIcon className="size-6 text-gray-700 transition-colors hover:text-red-400 cursor-pointer" />
+      </Button>
     </li>
   );
 };
