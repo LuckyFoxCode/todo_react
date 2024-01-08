@@ -18,12 +18,12 @@ export const TodoList: React.FC<TodoListProps> = ({
     setNotes(filteredNotes);
   };
 
-  const handleIsChecked = (id: string) => {
-    const isDoneTask = notes.map((note) => {
-      if (note.id === id) {
-        return { ...note, isDone: !note.isDone };
+  const handleEditTodo = (task: TodosProps) => {
+    const isDoneTask = notes.map((n) => {
+      if (n.id === task.id) {
+        return { ...task };
       } else {
-        return note;
+        return n;
       }
     });
 
@@ -39,12 +39,12 @@ export const TodoList: React.FC<TodoListProps> = ({
             className,
           )}
         >
-          {([] && notes).map((todo) => (
+          {notes.map((todo) => (
             <TodoItem
               key={todo.id}
               todo={todo}
               handleDeleteItem={handleDeleteItem}
-              handleIsChecked={handleIsChecked}
+              handleEditTodo={handleEditTodo}
             />
           ))}
           {!notes.length && (
