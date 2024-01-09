@@ -1,0 +1,165 @@
+$WHITE: #ffffff;
+$BLACK: #000000;
+
+// PRIMARY COLORS:
+
+$GRAY_50: #f9fafb;
+$GRAY_100: #f2f4f7;
+$GRAY_200: #eaecf0;
+$GRAY_300: #d0d5dd;
+$GRAY_400: #98a2b3;
+$GRAY_500: #667085;
+$GRAY_600: #475467;
+$GRAY_700: #344054;
+$GRAY_800: #1d2939;
+$GRAY_900: #101828;
+
+$PRIMARY_50: #f9f5ff;
+$PRIMARY_100: #f4ebff;
+$PRIMARY_200: #e9d7fe;
+$PRIMARY_300: #d6bbfb;
+$PRIMARY_400: #b692f6;
+$PRIMARY_500: #9e77ed;
+$PRIMARY_600: #7f56d9;
+$PRIMARY_700: #6941c6;
+$PRIMARY_800: #53389e;
+$PRIMARY_900: #42307d;
+
+$ERROR_50: #fef3f2;
+$ERROR_100: #fee4e2;
+$ERROR_200: #fecdca;
+$ERROR_300: #fda29b;
+$ERROR_400: #f97066;
+$ERROR_500: #f04438;
+$ERROR_600: #d92d20;
+$ERROR_700: #b42318;
+$ERROR_800: #912018;
+$ERROR_900: #7a271a;
+
+$WARNING_50: #fffaeb;
+$WARNING_100: #fef0c7;
+$WARNING_200: #fedf89;
+$WARNING_300: #fec84b;
+$WARNING_400: #fdb022;
+$WARNING_500: #f79009;
+$WARNING_600: #dc6803;
+$WARNING_700: #b54708;
+$WARNING_800: #93370d;
+$WARNING_900: #7a2e0e;
+
+$SUCCESS_50: #ecfdf3;
+$SUCCESS_100: #d1fadf;
+$SUCCESS_200: #a6f4c5;
+$SUCCESS_300: #6ce9a6;
+$SUCCESS_400: #32d583;
+$SUCCESS_500: #12b76a;
+$SUCCESS_600: #039855;
+$SUCCESS_700: #027a48;
+$SUCCESS_800: #05603a;
+$SUCCESS_900: #054f31;
+
+// SECONDARY COLORS:
+
+$BLUE_GRAY_50: #f8f9fc;
+$BLUE_GRAY_100: #eaecf5;
+$BLUE_GRAY_200: #d5d9eb;
+$BLUE_GRAY_300: #afb5d9;
+$BLUE_GRAY_400: #717bbc;
+$BLUE_GRAY_500: #4e5ba6;
+$BLUE_GRAY_600: #3e4784;
+$BLUE_GRAY_700: #363f72;
+$BLUE_GRAY_800: #293056;
+$BLUE_GRAY_900: #101323;
+
+$BLUE_LIGHT_50: #f0f9ff;
+$BLUE_LIGHT_100: #e0f2fe;
+$BLUE_LIGHT_200: #b9e6fe;
+$BLUE_LIGHT_300: #7cd4fd;
+$BLUE_LIGHT_400: #36bffa;
+$BLUE_LIGHT_500: #0ba5ec;
+$BLUE_LIGHT_600: #0086c9;
+$BLUE_LIGHT_700: #026aa2;
+$BLUE_LIGHT_800: #065986;
+$BLUE_LIGHT_900: #0b4a6f;
+
+$BLUE_50: #eff8ff;
+$BLUE_100: #d1e9ff;
+$BLUE_200: #b2ddff;
+$BLUE_300: #84caff;
+$BLUE_400: #53b1fd;
+$BLUE_500: #2e90fa;
+$BLUE_600: #1570ef;
+$BLUE_700: #175cd3;
+$BLUE_800: #1849a9;
+$BLUE_900: #194185;
+
+$INDIGO_50: #eef4ff;
+$INDIGO_100: #e0eaff;
+$INDIGO_200: #c7d7fe;
+$INDIGO_300: #a4bcfd;
+$INDIGO_400: #8098f9;
+$INDIGO_500: #6172f3;
+$INDIGO_600: #444ce7;
+$INDIGO_700: #3538cd;
+$INDIGO_800: #2d31a6;
+$INDIGO_900: #2d3282;
+
+$PURPLE_50: #f4f3ff;
+$PURPLE_100: #ebe9fe;
+$PURPLE_200: #d9d6fe;
+$PURPLE_300: #bdb4fe;
+$PURPLE_400: #9b8afb;
+$PURPLE_500: #7a5af8;
+$PURPLE_600: #6938ef;
+$PURPLE_700: #5925dc;
+$PURPLE_800: #4a1fb8;
+$PURPLE_900: #3e1c96;
+
+$PINK_50: #fdf2fa;
+$PINK_100: #fce7f6;
+$PINK_200: #fcceee;
+$PINK_300: #faa7e0;
+$PINK_400: #f670c7;
+$PINK_500: #ee46bc;
+$PINK_600: #dd2590;
+$PINK_700: #c11574;
+$PINK_800: #9e165f;
+$PINK_900: #851651;
+
+$ROSE_50: #fff1f3;
+$ROSE_100: #ffe4e8;
+$ROSE_200: #fecdd6;
+$ROSE_300: #fea3b4;
+$ROSE_400: #fd6f8e;
+$ROSE_500: #f63d68;
+$ROSE_600: #e31b54;
+$ROSE_700: #c01048;
+$ROSE_800: #a11043;
+$ROSE_900: #89123e;
+
+$ORANGE_50: #fff6ed;
+$ORANGE_100: #ffead5;
+$ORANGE_200: #fddcab;
+$ORANGE_300: #feb273;
+$ORANGE_400: #fd853a;
+$ORANGE_500: #fb6514;
+$ORANGE_600: #ec4a0a;
+$ORANGE_700: #c4320a;
+$ORANGE_800: #9c2a10;
+$ORANGE_900: #7e2410;
+
+$BOX_SHADOW_XS: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+$BOX_SHADOW_SM:
+  0px 1px 2px 0px rgba(16, 24, 40, 0.06),
+  0px 1px 3px 0px rgba(16, 24, 40, 0.1);
+$BOX_SHADOW_MD:
+  0px 2px 4px -2px rgba(16, 24, 40, 0.06),
+  0px 4px 8px -2px rgba(16, 24, 40, 0.1);
+$BOX_SHADOW_LG:
+  0px 4px 6px -2px rgba(16, 24, 40, 0.03),
+  0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+$BOX_SHADOW_XL:
+  0px 8px 8px -4px rgba(16, 24, 40, 0.03),
+  0px 20px 24px -4px rgba(16, 24, 40, 0.08);
+$BOX_SHADOW_2XL: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
+$BOX_SHADOW_3XL: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);

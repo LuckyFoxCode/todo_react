@@ -1,0 +1,11 @@
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 rgba($BLUE_600, 0.6); /* Initial shadow (same as above) */
+  }
+  50% {
+    box-shadow: 0 0 10px rgba($BLUE_600, 0.9); /* Shadow with increased blur and opacity at 50% mark */
+  }
+  100% {
+    box-shadow: 0 0 0 rgba($BLUE_600, 0.6); /* Back to the initial shadow at the end of the animation */
+  }
+}
