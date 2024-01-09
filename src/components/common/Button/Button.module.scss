@@ -1,0 +1,15 @@
+@import 'styles';
+
+.button {
+  width: fit-content;
+  @include flex(flex-start, center);
+  @include text(rem(14), 600, $GRAY_700);
+  @include transition(background-color);
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 10px 12px;
+  cursor: pointer;
+  &:hover {
+    background-color: $WHITE;
+  }
+}

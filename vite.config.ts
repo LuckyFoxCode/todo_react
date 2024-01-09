@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      assets: '/src/assets',
       data: '/src/data',
       pages: '/src/pages',
       utils: '/src/utils',

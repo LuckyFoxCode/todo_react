@@ -1,0 +1,15 @@
+@import 'styles';
+
+.header {
+  @include flex(space-between, center);
+  padding: 20px;
+  box-shadow: $BOX_SHADOW_LG;
+
+  &__logo {
+    @include text(rem(20), 400, $ORANGE_500);
+    @include transition(color);
+    &:hover {
+      color: $ORANGE_300;
+    }
+  }
+}

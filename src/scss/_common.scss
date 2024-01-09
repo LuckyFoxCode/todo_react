@@ -51,3 +51,7 @@ button {
   border-radius: 2px;
   background-color: $BLUE_300;
 }
+
+.main {
+  @include flex;
+}

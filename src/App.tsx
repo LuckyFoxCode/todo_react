@@ -1,7 +1,12 @@
+import { Categories, Header } from 'components';
+
 export const App = () => {
   return (
     <>
-      <h1>Todo App</h1>
+      <Header />
+      <main className="main">
+        <Categories />
+      </main>
     </>
   );
 };
