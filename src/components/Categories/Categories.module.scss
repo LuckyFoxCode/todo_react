@@ -1,7 +1,53 @@
 @import 'styles';
 
 .categories {
+  width: 200px;
   @include flex-col;
   background-color: $GRAY_100;
-  padding: 50px 20px 50px;
+  padding: 30px 20px 50px;
+  row-gap: 20px;
+  height: calc(100vh - 66px);
+}
+
+// Categories List:
+
+.list {
+  @include flex-col;
+  // margin-bottom: 25px;
+  row-gap: 10px;
+
+  &__item {
+    @include flex(flex-start, center);
+    @include transition(background-color, box-shadow);
+    padding: 13px 12px 14px 12px;
+    background-color: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background-color: $WHITE;
+      box-shadow: $BOX_SHADOW_MD;
+    }
+    &:hover &_icon {
+      opacity: 1;
+    }
+
+    &_color {
+      @include size(10px, true);
+      background-color: $SUCCESS_300;
+      margin-right: 10px;
+    }
+
+    &_descr {
+      display: flex;
+      flex-grow: 1;
+      @include text(rem(14), 600, $BLACK);
+      letter-spacing: 0.15px;
+    }
+
+    &_icon {
+      @include transition(opacity);
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+  }
 }
