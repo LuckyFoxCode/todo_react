@@ -1,9 +1,9 @@
 @import 'styles';
 
 .categories {
+  @include flex-col;
   position: relative;
   min-width: 200px;
-  @include flex-col;
   background-color: $GRAY_100;
   padding: 30px 20px 50px;
   row-gap: 20px;
@@ -25,8 +25,9 @@
   &__item {
     @include flex(flex-start, center);
     @include transition(background-color, box-shadow);
-    padding: 13px 12px 14px 12px;
+    position: relative;
     background-color: transparent;
+    padding-inline: 12px;
     border-radius: 4px;
     cursor: pointer;
     &:hover {
@@ -44,10 +45,12 @@
     }
 
     &_descr {
+      @include text(rem(14), 600, $BLACK);
       display: flex;
       flex-grow: 1;
-      @include text(rem(14), 600, $BLACK);
       letter-spacing: 0.15px;
+      padding-top: 13px;
+      padding-bottom: 14px;
     }
 
     &_icon {

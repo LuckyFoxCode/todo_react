@@ -23,7 +23,6 @@ export const Categories: React.FC = () => {
           iconSize={18}
           iconFill="#344054"
           iconStyle={{ marginRight: '5px' }}
-          onClick={handleAddCategory}
           className={s.categories__btn}
         />
       )}
