@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Icon } from 'components/common/Icon';
 import { CategoriesProps } from 'utils/types';
 import s from '../Categories.module.scss';
@@ -16,8 +17,8 @@ export const CategoriesListItem: React.FC<CategoriesListItemProps> = ({
   const { id, title, colorTitle, isActive } = category;
   return (
     <li
-      className={s.list__item}
-      style={{ backgroundColor: isActive ? '#fff' : '' }}
+      className={clsx(s.list__item, isActive && s['active'])}
+      // style={{ backgroundColor: isActive ? '#fff' : '' }}
     >
       <div
         className={s.list__item_color}

@@ -7,13 +7,18 @@
   padding: 30px 20px 50px;
   row-gap: 20px;
   height: calc(100vh - 66px);
-}
 
-// Categories List:
+  &__btn {
+    @include transition(background-color, box-shadow);
+    &:hover {
+      background-color: $WHITE;
+      box-shadow: $BOX_SHADOW_MD;
+    }
+  }
+}
 
 .list {
   @include flex-col;
-  // margin-bottom: 25px;
   row-gap: 10px;
 
   &__item {
@@ -50,4 +55,11 @@
       opacity: 0;
     }
   }
+}
+
+.active {
+  background-color: $WHITE;
+  box-shadow:
+    0px 2px 4px -2px rgb($SUCCESS_500, 0.09),
+    0px 4px 8px -2px rgb($SUCCESS_500, 0.3);
 }

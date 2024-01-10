@@ -23,7 +23,7 @@ export const Categories: React.FC = () => {
           iconFill="#344054"
           iconStyle={{ marginRight: '5px' }}
           onClick={handleAddCategory}
-          className={s.categories__allTaskBtn}
+          className={s.categories__btn}
         />
       )}
       <CategoriesList data={data} setData={setData} />
@@ -35,6 +35,7 @@ export const Categories: React.FC = () => {
         iconFill="#344054"
         iconStyle={{ marginRight: '5px' }}
         onClick={handleAddCategory}
+        className={s.categories__btn}
       />
     </aside>
   );
