@@ -1,0 +1,13 @@
+@import 'styles';
+
+.input {
+  @include text(rem(14), 400, $GRAY_500);
+  @include transition(all);
+  width: 100%;
+  border: 1px solid $GRAY_100;
+  border-radius: 4px;
+  padding: 7px 10px;
+  &::placeholder {
+    color: $GRAY_300;
+  }
+}

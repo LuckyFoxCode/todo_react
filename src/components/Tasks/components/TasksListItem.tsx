@@ -1,4 +1,4 @@
-import { Icon } from 'components/common/Icon';
+import { Icon } from 'components/common';
 import { TasksProps } from 'utils/types';
 import s from '../Tasks.module.scss';
 

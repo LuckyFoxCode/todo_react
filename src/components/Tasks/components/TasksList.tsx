@@ -1,6 +1,6 @@
 import { tasks } from 'data';
 import s from '../Tasks.module.scss';
-import { TasksListItem } from './';
+import { TasksListItem } from './TasksListItem';
 
 interface TasksListProps {}
 

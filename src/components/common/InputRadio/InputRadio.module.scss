@@ -1,0 +1,25 @@
+@import 'styles';
+
+.radioBtn {
+  @include flex(space-between, center);
+  column-gap: 5px;
+
+  &__input {
+    position: absolute;
+    visibility: hidden;
+    z-index: -1;
+  }
+
+  &__input:checked + &__custom {
+    border-color: $GRAY_800;
+  }
+
+  &__custom {
+    @include size(20px, true);
+
+    cursor: pointer;
+    display: flex;
+    background-color: $GRAY_300;
+    border: 2px solid transparent;
+  }
+}

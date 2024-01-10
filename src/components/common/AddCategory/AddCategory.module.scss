@@ -1,0 +1,37 @@
+@import 'styles';
+
+.form {
+  position: fixed;
+  bottom: 5%;
+  left: 3%;
+  width: fit-content;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: $BOX_SHADOW_2XL;
+  @include z-index(footer);
+  &__input {
+    margin-bottom: 15px;
+    &:focus {
+      outline-color: $SUCCESS_400;
+      box-shadow: $BOX_SHADOW_MD;
+    }
+  }
+
+  &__radio {
+    margin-bottom: 15px;
+  }
+
+  &__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: $SUCCESS_500;
+    color: $WHITE;
+    &:hover,
+    &:focus {
+      background-color: $SUCCESS_400;
+      color: $GRAY_200;
+    }
+  }
+}

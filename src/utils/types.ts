@@ -10,3 +10,8 @@ export interface TasksProps {
   description: string;
   isDone: boolean;
 }
+
+export interface RadioColorsProps {
+  color: string;
+  isActive: boolean;
+}

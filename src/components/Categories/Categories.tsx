@@ -1,4 +1,4 @@
-import { Button } from 'components/common';
+import { AddCategory, Button } from 'components/common';
 import { categories } from 'data';
 import { useState } from 'react';
 import { CategoriesProps } from 'utils/types';
@@ -7,9 +7,10 @@ import s from './Categories.module.scss';
 
 export const Categories: React.FC = () => {
   const [data, setData] = useState<CategoriesProps[]>(categories);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const handleAddCategory = () => {
-    console.log('Add Category');
+    setShowModal(true);
   };
 
   return (
@@ -37,6 +38,9 @@ export const Categories: React.FC = () => {
         onClick={handleAddCategory}
         className={s.categories__btn}
       />
+      {showModal && (
+        <AddCategory setData={setData} setShowModal={setShowModal} />
+      )}
     </aside>
   );
 };
