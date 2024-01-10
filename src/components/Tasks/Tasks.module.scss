@@ -1,0 +1,55 @@
+@import 'styles';
+
+.tasks {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 66px);
+  padding: 55px 75px 55px 55px;
+
+  &__descr {
+    @include text(rem(36), 600, $GRAY_400);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__wrapper {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-family: $SECOND_FONT;
+    @include text(rem(36), 700, rgb(105, 180, 180));
+    padding-bottom: 20px;
+    border-bottom: 1px solid $GRAY_100;
+    margin-bottom: 30px;
+  }
+}
+
+.list {
+  @include flex-col;
+  row-gap: 20px;
+  &__item {
+    width: fit-content;
+    @include flex(flex-start, center);
+    &:hover &_icon {
+      opacity: 1;
+    }
+
+    &_name {
+      @include text(rem(16), 400, $GRAY_700);
+      margin-right: 5px;
+    }
+
+    &_icon {
+      @include transition(opacity);
+      transform: rotate(45deg);
+      cursor: pointer;
+      opacity: 0;
+    }
+  }
+}

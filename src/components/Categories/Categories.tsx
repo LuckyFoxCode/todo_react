@@ -1,5 +1,5 @@
 import { Button } from 'components/common';
-import { categories } from 'data/categories';
+import { categories } from 'data';
 import { useState } from 'react';
 import { CategoriesProps } from 'utils/types';
 import { CategoriesList } from './components';

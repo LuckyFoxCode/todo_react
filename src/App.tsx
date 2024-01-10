@@ -1,4 +1,4 @@
-import { Categories, Header } from 'components';
+import { Categories, Header, Tasks } from 'components';
 
 export const App = () => {
   return (
@@ -6,6 +6,7 @@ export const App = () => {
       <Header />
       <main className="main">
         <Categories />
+        <Tasks />
       </main>
     </>
   );
