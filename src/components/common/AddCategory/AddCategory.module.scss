@@ -34,4 +34,14 @@
       color: $GRAY_200;
     }
   }
+
+  &__closeBtn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    @include size(20px, true);
+    transform: rotate(45deg);
+    background-color: $GRAY_600;
+    padding: 5px;
+  }
 }

@@ -1,16 +1,20 @@
 import { tasks } from 'data/tasks';
+import { SelectedCategory } from 'utils/types';
 import { TasksList } from './components';
 import s from './Tasks.module.scss';
 
-interface TasksProps {}
+interface TasksProps {
+  selectedCategory: SelectedCategory;
+}
 
-export const Tasks: React.FC<TasksProps> = () => {
+export const Tasks: React.FC<TasksProps> = ({ selectedCategory }) => {
   return (
     <div className={s.tasks}>
-      {Boolean(!tasks.length) && (
+      {tasks.length === 0 ? (
         <span className={s.tasks__descr}>Tasks is empty... 😢</span>
+      ) : (
+        <TasksList selectedCategory={selectedCategory} />
       )}
-      {!!tasks.length && <TasksList />}
     </div>
   );
 };

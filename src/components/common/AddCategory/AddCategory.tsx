@@ -1,21 +1,23 @@
 import { radioColors } from 'data/radio-colors';
 import { useState } from 'react';
-import { CategoriesProps, RadioColorsProps } from 'utils/types';
+import { Category, RadioColors, SelectedCategory } from 'utils/types';
 import { Button } from '../Button';
 import { Input } from '../Input';
 import { InputRadio } from '../InputRadio';
 import s from './AddCategory.module.scss';
 
 interface AddCategoryProps {
-  setData: React.Dispatch<React.SetStateAction<CategoriesProps[]>>;
+  setData: React.Dispatch<React.SetStateAction<Category[]>>;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  selectedCategory: SelectedCategory;
 }
 
 export const AddCategory: React.FC<AddCategoryProps> = ({
   setData,
   setShowModal,
+  selectedCategory,
 }) => {
-  const [colors, setColors] = useState<RadioColorsProps[]>(radioColors);
+  const [colors, setColors] = useState<RadioColors[]>(radioColors);
   const [inputVal, setInputVal] = useState<string>('');
   const [inputCol, setInputCol] = useState<string>('');
 
@@ -32,7 +34,7 @@ export const AddCategory: React.FC<AddCategoryProps> = ({
       id: crypto.randomUUID(),
       title: inputVal,
       colorTitle: inputCol,
-      isActive: false,
+      categoryId: selectedCategory.id,
     };
 
     setData((prev) => [...prev, newCategory]);
@@ -60,6 +62,14 @@ export const AddCategory: React.FC<AddCategoryProps> = ({
         title="Add"
         disabled={inputVal.length === 0}
         className={s.form__btn}
+      />
+      <Button
+        withIcon
+        iconName="Plus"
+        iconSize={16}
+        iconFill="white"
+        className={s.form__closeBtn}
+        onClick={() => setShowModal(false)}
       />
     </form>
   );

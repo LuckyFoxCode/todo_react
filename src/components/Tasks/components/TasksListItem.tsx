@@ -1,9 +1,9 @@
 import { Icon } from 'components/common';
-import { TasksProps } from 'utils/types';
+import { Tasks } from 'utils/types';
 import s from '../Tasks.module.scss';
 
 interface TasksListItemProps {
-  task: TasksProps;
+  task: Tasks;
 }
 
 export const TasksListItem: React.FC<TasksListItemProps> = ({ task }) => {

@@ -1,29 +1,41 @@
 import clsx from 'clsx';
 import { Icon } from 'components/common';
-import { CategoriesProps } from 'utils/types';
+import { Category, SelectedCategory } from 'utils/types';
 import s from '../Categories.module.scss';
 
 interface CategoriesListItemProps {
-  category: CategoriesProps;
-  handleSetActiveCategory: (id: string) => void;
+  category: Category;
   handleDeleteCategory: (id: string) => void;
+  selectedCategory: SelectedCategory;
+  setSelectedCategory: React.Dispatch<React.SetStateAction<SelectedCategory>>;
 }
 
 export const CategoriesListItem: React.FC<CategoriesListItemProps> = ({
   category,
-  handleSetActiveCategory,
   handleDeleteCategory,
+  selectedCategory,
+  setSelectedCategory,
 }) => {
-  const { id, title, colorTitle, isActive } = category;
+  const { id, title, colorTitle } = category;
+
   return (
-    <li className={clsx(s.list__item, isActive && s['active'])}>
+    <li
+      className={clsx(s.list__item, selectedCategory.id === id && s['active'])}
+    >
       <div
         className={s.list__item_color}
         style={{ backgroundColor: colorTitle }}
       />
       <span
         className={s.list__item_descr}
-        onClick={() => handleSetActiveCategory(id)}
+        onClick={() =>
+          setSelectedCategory({
+            ...selectedCategory,
+            id,
+            title,
+            color: colorTitle,
+          })
+        }
       >
         {title}
       </span>

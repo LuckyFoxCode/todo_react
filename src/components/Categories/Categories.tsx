@@ -1,12 +1,20 @@
 import { AddCategory, Button } from 'components/common';
 import { categories } from 'data';
 import { useState } from 'react';
-import { CategoriesProps } from 'utils/types';
+import { Category, SelectedCategory } from 'utils/types';
 import { CategoriesList } from './components';
 import s from './Categories.module.scss';
 
-export const Categories: React.FC = () => {
-  const [data, setData] = useState<CategoriesProps[]>(categories);
+interface CategoryProps {
+  selectedCategory: SelectedCategory;
+  setSelectedCategory: React.Dispatch<React.SetStateAction<SelectedCategory>>;
+}
+
+export const Categories: React.FC<CategoryProps> = ({
+  selectedCategory,
+  setSelectedCategory,
+}) => {
+  const [data, setData] = useState<Category[]>(categories);
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const handleAddCategory = () => {
@@ -26,7 +34,12 @@ export const Categories: React.FC = () => {
           className={s.categories__btn}
         />
       )}
-      <CategoriesList data={data} setData={setData} />
+      <CategoriesList
+        data={data}
+        setData={setData}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
       <Button
         title="Add categories"
         withIcon
@@ -38,7 +51,11 @@ export const Categories: React.FC = () => {
         className={s.categories__btn}
       />
       {showModal && (
-        <AddCategory setData={setData} setShowModal={setShowModal} />
+        <AddCategory
+          setData={setData}
+          setShowModal={setShowModal}
+          selectedCategory={selectedCategory}
+        />
       )}
     </aside>
   );

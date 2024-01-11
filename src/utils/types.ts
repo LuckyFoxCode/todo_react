@@ -1,17 +1,23 @@
-export interface CategoriesProps {
+export interface Category {
   id: string;
   title: string;
-  isActive: boolean;
   colorTitle: string;
 }
 
-export interface TasksProps {
+export interface Tasks {
   id: string;
+  categoryId: string;
   description: string;
   isDone: boolean;
 }
 
-export interface RadioColorsProps {
+export interface RadioColors {
   color: string;
   isActive: boolean;
+}
+
+export interface SelectedCategory {
+  id: string;
+  title: string;
+  color: string;
 }
