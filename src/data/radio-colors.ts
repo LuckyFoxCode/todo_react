@@ -1,6 +1,6 @@
-import { RadioColorsProps } from 'utils/types';
+import { RadioColors } from 'utils/types';
 
-export const radioColors: RadioColorsProps[] = [
+export const radioColors: RadioColors[] = [
   { color: '#98a2b3', isActive: true },
   { color: '#b692f6', isActive: false },
   { color: '#53b1fd', isActive: false },
