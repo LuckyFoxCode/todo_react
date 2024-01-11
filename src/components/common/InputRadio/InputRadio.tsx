@@ -1,12 +1,12 @@
 import clsx from 'clsx';
-import { RadioColorsProps } from 'utils/types';
+import { RadioColors } from 'utils/types';
 import s from './InputRadio.module.scss';
 
 interface InputRadioProps {
   className?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  colors: RadioColorsProps[];
-  setColors: React.Dispatch<React.SetStateAction<RadioColorsProps[]>>;
+  colors: RadioColors[];
+  setColors: React.Dispatch<React.SetStateAction<RadioColors[]>>;
 }
 
 export const InputRadio: React.FC<InputRadioProps> = ({
