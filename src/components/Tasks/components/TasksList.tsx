@@ -1,5 +1,7 @@
+import { AddTask } from 'components/common';
 import { tasks } from 'data';
-import { SelectedCategory } from 'utils/types';
+import { useState } from 'react';
+import { SelectedCategory, Tasks } from 'utils/types';
 import s from '../Tasks.module.scss';
 import { TasksListItem } from './TasksListItem';
 
@@ -8,6 +10,7 @@ interface TasksListProps {
 }
 
 export const TasksList: React.FC<TasksListProps> = ({ selectedCategory }) => {
+  const [notes, setNotes] = useState<Tasks[]>(tasks);
   const { id, title, color } = selectedCategory;
 
   return (
@@ -16,12 +19,13 @@ export const TasksList: React.FC<TasksListProps> = ({ selectedCategory }) => {
         {title}
       </h2>
       <ul className={s.list}>
-        {tasks
+        {notes
           .filter((task) => task.categoryId === id)
           .map((t) => (
             <TasksListItem key={t.id} task={t} />
           ))}
       </ul>
+      {<AddTask categoryId={id} setNotes={setNotes} />}
     </div>
   );
 };

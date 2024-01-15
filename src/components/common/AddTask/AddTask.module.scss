@@ -1,0 +1,19 @@
+@import 'styles';
+
+.form {
+  @include flex;
+  column-gap: 10px;
+
+  &__btn {
+    @include transition(background-color, color);
+    background-color: $SUCCESS_400;
+    &:hover {
+      background-color: $SUCCESS_500;
+    }
+    &:disabled {
+      background-color: $GRAY_100;
+      color: $GRAY_300;
+      cursor: default;
+    }
+  }
+}
