@@ -33,11 +33,16 @@
 .list {
   @include flex-col;
   row-gap: 20px;
+  margin-bottom: 20px;
   &__item {
     width: fit-content;
     @include flex(flex-start, center);
     &:hover &_icon {
       opacity: 1;
+    }
+
+    &_checkbox {
+      margin-right: 5px;
     }
 
     &_name {
