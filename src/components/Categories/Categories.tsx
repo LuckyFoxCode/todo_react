@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { AddCategory, Button } from 'components/common';
 import { categories } from 'data';
 import { useState } from 'react';
@@ -8,17 +9,26 @@ import s from './Categories.module.scss';
 interface CategoryProps {
   selectedCategory: SelectedCategory;
   setSelectedCategory: React.Dispatch<React.SetStateAction<SelectedCategory>>;
+  selectedAll: boolean;
+  setSelectedAll: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Categories: React.FC<CategoryProps> = ({
   selectedCategory,
   setSelectedCategory,
+  selectedAll,
+  setSelectedAll,
 }) => {
   const [data, setData] = useState<Category[]>(categories);
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const handleAddCategory = () => {
     setShowModal(true);
+  };
+
+  const hadnleSelectedAll = () => {
+    setSelectedAll(true);
+    setSelectedCategory({ id: '', title: '', color: '' });
   };
 
   return (
@@ -31,7 +41,8 @@ export const Categories: React.FC<CategoryProps> = ({
           iconSize={18}
           iconFill="#344054"
           iconStyle={{ marginRight: '5px' }}
-          className={s.categories__btn}
+          className={clsx(s.categories__btn, selectedAll && s['active'])}
+          onClick={hadnleSelectedAll}
         />
       )}
       <CategoriesList
@@ -39,6 +50,7 @@ export const Categories: React.FC<CategoryProps> = ({
         setData={setData}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
+        setSelectedAll={setSelectedAll}
       />
       <Button
         title="Add categories"

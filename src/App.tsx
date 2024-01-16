@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { SelectedCategory } from './utils';
 
 export const App = () => {
+  const [selectedAll, setSelectedAll] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<SelectedCategory>({
     id: '',
     title: '',
@@ -16,6 +17,8 @@ export const App = () => {
         <Categories
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          selectedAll={selectedAll}
+          setSelectedAll={setSelectedAll}
         />
         <Tasks selectedCategory={selectedCategory} />
       </main>

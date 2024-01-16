@@ -7,6 +7,7 @@ interface CategoriesListProps {
   setData: React.Dispatch<React.SetStateAction<Category[]>>;
   selectedCategory: SelectedCategory;
   setSelectedCategory: React.Dispatch<React.SetStateAction<SelectedCategory>>;
+  setSelectedAll: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CategoriesList: React.FC<CategoriesListProps> = ({
@@ -14,11 +15,13 @@ export const CategoriesList: React.FC<CategoriesListProps> = ({
   setData,
   selectedCategory,
   setSelectedCategory,
+  setSelectedAll,
 }) => {
   const handleDeleteCategory = (id: string) => {
     const filteredCategories = data.filter((category) => category.id !== id);
 
     setData(filteredCategories);
+    setSelectedCategory({ id: '', title: '', color: '' });
   };
 
   return (
@@ -30,6 +33,7 @@ export const CategoriesList: React.FC<CategoriesListProps> = ({
           handleDeleteCategory={handleDeleteCategory}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          setSelectedAll={setSelectedAll}
         />
       ))}
     </ul>

@@ -13,6 +13,8 @@ export const TasksList: React.FC<TasksListProps> = ({ selectedCategory }) => {
   const [notes, setNotes] = useState<Tasks[]>(tasks);
   const { id, title, color } = selectedCategory;
 
+  const isEmptyTasks = notes.filter((n) => n.categoryId === id);
+
   const handleRemoveTask = (id: string) => {
     const filteredTasks = notes.filter((note) => note.id !== id);
 
@@ -37,7 +39,7 @@ export const TasksList: React.FC<TasksListProps> = ({ selectedCategory }) => {
       <h2 className={s.tasks__title} style={{ color: color }}>
         {title}
       </h2>
-      {notes && (
+      {!!isEmptyTasks.length && (
         <ul className={s.list}>
           {notes
             .filter((task) => task.categoryId === id)

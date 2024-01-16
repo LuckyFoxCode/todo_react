@@ -8,6 +8,7 @@ interface CategoriesListItemProps {
   handleDeleteCategory: (id: string) => void;
   selectedCategory: SelectedCategory;
   setSelectedCategory: React.Dispatch<React.SetStateAction<SelectedCategory>>;
+  setSelectedAll: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CategoriesListItem: React.FC<CategoriesListItemProps> = ({
@@ -15,8 +16,18 @@ export const CategoriesListItem: React.FC<CategoriesListItemProps> = ({
   handleDeleteCategory,
   selectedCategory,
   setSelectedCategory,
+  setSelectedAll,
 }) => {
   const { id, title, colorTitle } = category;
+
+  const isSelectedCategory = () => {
+    setSelectedCategory({
+      id,
+      title,
+      color: colorTitle,
+    });
+    setSelectedAll(false);
+  };
 
   return (
     <li
@@ -26,17 +37,7 @@ export const CategoriesListItem: React.FC<CategoriesListItemProps> = ({
         className={s.list__item_color}
         style={{ backgroundColor: colorTitle }}
       />
-      <span
-        className={s.list__item_descr}
-        onClick={() =>
-          setSelectedCategory({
-            ...selectedCategory,
-            id,
-            title,
-            color: colorTitle,
-          })
-        }
-      >
+      <span className={s.list__item_descr} onClick={isSelectedCategory}>
         {title}
       </span>
       <Icon
