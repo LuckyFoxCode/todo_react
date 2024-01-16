@@ -1,1 +1,1 @@
-export type IconType = 'Plus' | 'All';
+export type IconType = 'Plus' | 'All' | 'Done' | 'Trash';

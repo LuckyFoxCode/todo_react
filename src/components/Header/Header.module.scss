@@ -6,6 +6,7 @@
   background-color: $WHITE;
   box-shadow: $BOX_SHADOW_LG;
   padding: 20px;
+  @include z-index(wrapper);
 
   &__logo {
     @include text(rem(20), 400, $ORANGE_500);

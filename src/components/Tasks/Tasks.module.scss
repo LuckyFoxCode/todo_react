@@ -35,25 +35,59 @@
   row-gap: 20px;
   margin-bottom: 20px;
   &__item {
-    width: fit-content;
     @include flex(flex-start, center);
+    background-color: $GRAY_100;
+    box-shadow: $BOX_SHADOW_MD;
+    border-radius: 5px;
+    padding: 10px 15px;
     &:hover &_icon {
       opacity: 1;
     }
 
-    &_checkbox {
-      margin-right: 5px;
-    }
-
     &_name {
-      @include text(rem(16), 400, $GRAY_700);
-      margin-right: 5px;
+      @include text(rem(18), 400, $GRAY_700);
+      margin-right: 10px;
     }
 
     &_icon {
-      @include transition(opacity);
-      transform: rotate(45deg);
+      @include transition(opacity, fill);
       cursor: pointer;
+      opacity: 0;
+      &:hover {
+        fill: $ERROR_500;
+      }
+    }
+  }
+}
+
+.labelWrapper {
+  position: relative;
+  @include flex;
+  margin-right: 10px;
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    display: none;
+  }
+
+  &__checkbox:checked + &__customCheckbox {
+    background-color: $SUCCESS_400;
+    border-color: transparent;
+  }
+
+  &__checkbox:checked + &__customCheckbox > &__customCheckbox_icon {
+    opacity: 1;
+  }
+
+  &__customCheckbox {
+    @include flex(center, center);
+    @include size(20px, true);
+    @include transition(border-color, background-color, opacity);
+    border: 2px solid $SUCCESS_400;
+    background-color: $WHITE;
+
+    &_icon {
       opacity: 0;
     }
   }

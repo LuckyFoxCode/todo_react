@@ -17,18 +17,28 @@ export const TasksListItem: React.FC<TasksListItemProps> = ({
 
   return (
     <li className={s.list__item}>
-      <input
-        id={id}
-        type="checkbox"
-        checked={isDone}
-        className={s.list__item_checkbox}
-        onChange={handleToggleCheckbox}
-      />
+      <label className={s.labelWrapper}>
+        <input
+          id={id}
+          type="checkbox"
+          checked={isDone}
+          className={s.labelWrapper__checkbox}
+          onChange={handleToggleCheckbox}
+        />
+        <span className={s.labelWrapper__customCheckbox}>
+          <Icon
+            name="Done"
+            size={16}
+            fill="white"
+            className={s.labelWrapper__customCheckbox_icon}
+          />
+        </span>
+      </label>
       <p className={s.list__item_name}>{description}</p>
       <Icon
-        name="Plus"
-        size={18}
-        fill="gray"
+        name="Trash"
+        size={20}
+        fill="#1E202C"
         className={s.list__item_icon}
         onClick={() => handleRemoveTask(id)}
       />
